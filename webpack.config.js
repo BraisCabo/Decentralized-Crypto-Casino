@@ -1,19 +1,31 @@
 const path = require('path')
+const { CheckCaseWebpackPlugin } = require('check-case-webpack-plugin');
 
 const config = {
+  ignoreWarnings: [
+    (warning) => false
+  ],
     entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'build'),
       filename: 'main.js',
+      publicPath: '/',
     },
-    devServer: {
-        static: path.resolve(__dirname, 'build'),
-        compress: true,
-        port: 3000,
-      },
-      devtool: 'source-map',
     module: {
       rules: [
+        {
+          test: /\.(gif|png|jpe?g|svg)$/i,
+          use: [
+            'file-loader',
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                bypassOnDebug: true, // webpack@1.x
+                disable: true, // webpack@2.x and newer
+              },
+            },
+          ],
+        },
         {
           test: /\.js$/,
           loader: 'babel-loader',
