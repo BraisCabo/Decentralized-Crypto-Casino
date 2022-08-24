@@ -6,6 +6,12 @@ import "./Token.sol";
 
 contract Casino is Ownable{
 
+    event RouletteGame (
+        uint NumberWin,
+        bool result,
+        uint tokensEarned
+    );
+
     ERC20 private token;
      address public tokenAddress;
 
@@ -16,7 +22,6 @@ contract Casino is Ownable{
     function tokenBalance(address _of) public view returns (uint256){
         return token.balanceOf(_of);
     }
-
     constructor(){
         token =  new ERC20("Casino", "CAS");
         tokenAddress = address(token);
@@ -82,7 +87,7 @@ contract Casino is Ownable{
         return historialApuestas[_propietario];
     }
 
-    function jugarRuleta(uint _start, uint _end, uint _tokensBet) public returns(RouleteResult memory returned){
+    function jugarRuleta(uint _start, uint _end, uint _tokensBet) public returns(RouleteResult memory){
         require(_tokensBet <= token.balanceOf(msg.sender));
         require(_tokensBet > 0);
         uint random = uint(uint(keccak256(abi.encodePacked(block.timestamp))) % 14);
@@ -102,7 +107,9 @@ contract Casino is Ownable{
             token.transfer( address(this), msg.sender, tokensEarned);
         }
             addHistorial("Roulete", _tokensBet, tokensEarned, msg.sender);
-            return  RouleteResult(random, win, tokensEarned);
+            RouleteResult memory result  = RouleteResult(random, win, tokensEarned);
+            emit RouletteGame(random, win, tokensEarned);
+            return  result;
     }
 
     function addHistorial(string memory _game, uint _tokensBet,  uint _tokenEarned, address caller) internal{

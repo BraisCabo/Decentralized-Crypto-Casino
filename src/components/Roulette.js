@@ -20,7 +20,7 @@ const data = [
     { id: 14, option: 14, style:{ backgroundColor: 'black', textColor: 'white'}},
   ];
 
- const Ruleta = ({newPrizeNumber, mustSpin, setMustSpin}) => {;
+ const Ruleta = ({newPrizeNumber, mustSpin, functionallity}) => {;
     const prizePos = data.filter(element => element.option === newPrizeNumber)
     const finalNumber = prizePos[0].id
     return (
@@ -37,7 +37,7 @@ const data = [
             perpendicularText={[false]}
             textDistance={[75]}
             onStopSpinning={() => {
-              setMustSpin(false);
+              functionallity()
             }}
           />
         </div>

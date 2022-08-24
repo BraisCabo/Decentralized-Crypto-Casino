@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\brais\\OneDrive\\Documentos\\CriptoCasino\\src\\backend\\contracts\\Casino.sol": {
-      "lastModificationDate": 1660832693218,
-      "contentHash": "8af55def3e6e470b6a73d93274e60c73",
+      "lastModificationDate": 1661350679113,
+      "contentHash": "cdbaa9ddc92f1726513b366589540b87",
       "sourceName": "src/backend/contracts/Casino.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -30,7 +30,6 @@
       },
       "imports": [
         "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Strings.sol",
         "./Token.sol"
       ],
       "versionPragmas": [
@@ -181,6 +180,41 @@
       ],
       "artifacts": [
         "Strings"
+      ]
+    },
+    "C:\\Users\\brais\\OneDrive\\Documentos\\CriptoCasino\\node_modules\\hardhat\\console.sol": {
+      "lastModificationDate": 1660491302693,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
       ]
     }
   }
