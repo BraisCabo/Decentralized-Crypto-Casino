@@ -2,10 +2,7 @@ import * as React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 
-
-
-
-export default function CustomColor({backGround, text, display, more, size, type, width, functionallity}) {
+export default function CustomButton({backGround, text, display, size, type, width, functionallity, margin, height}) {
     const theme = createTheme({
         palette: {
           neutral: {
@@ -16,7 +13,7 @@ export default function CustomColor({backGround, text, display, more, size, type
       });
   return (
     <ThemeProvider theme={theme}>
-      <Button size={size} type={type} color="neutral"  variant='contained' sx={{width:{width}}} onClick={functionallity}>
+      <Button size={size} type={type} color="neutral"  variant='contained' sx={{width:{width}, height:{height}, m: margin}} onClick={functionallity}>
           {display}
       </Button>
     </ThemeProvider>

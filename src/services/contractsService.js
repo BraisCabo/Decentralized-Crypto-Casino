@@ -17,6 +17,10 @@ import CasinoAddress from "../backend/contractsData/Casino-address.json";
         await (await casino.compraTokens(tokenNum, {value: ethers.utils.parseEther(price.toString())})).wait();
     }
 
+    const withdrawTokens = async(tokenNum) =>{
+        await (await casino.devolverTokens(tokenNum)).wait();
+    }
+
     const playRoulette = async(start, end, tokensBet) =>{
         const game = await (await casino.jugarRuleta(start.toString(), end.toString(), tokensBet.toString())).wait();
         let result
@@ -50,7 +54,8 @@ import CasinoAddress from "../backend/contractsData/Casino-address.json";
         return historialParsed
     }
 
-    export default {loadContracts, tokenBalance, buyTokens, tokenPrice, historial, playRoulette};
+
+    export default {loadContracts, tokenBalance, buyTokens, tokenPrice, historial, playRoulette, withdrawTokens};
 
 
 

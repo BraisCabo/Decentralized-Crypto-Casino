@@ -1,70 +1,14 @@
 import React from "react";
-import { Button, TextField, Grid, Typography, Avatar } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
+import { Button, Grid, Typography } from "@mui/material";
+import { useDispatch } from "react-redux";
 import { useField } from "../hooks/useField";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import bnb from "../images/Binance-Coin-BNB-icon.png";
 import contractsService from '../services/contractsService';
 import { loadBalance } from "../reducers/balanceReducer";
-import styled from "@emotion/styled";
-
-const CssTextField = styled(TextField)({
-  '& label.Mui-focused': {
-    color: '#FFFFFF',
-  },
-  '& .MuiInput-underline:after': {
-    borderBottomColor: '#FFFFFF',
-  },
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: '#FFFFFF',
-    },
-    '&:hover fieldset': {
-      borderColor: '#FFFFFF',
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: '#FFFFFF',
-    },
-    "&.MuiInputBase-root": {
-      color: 'white'
-  }
-  },
-});
-
-const CButton = ({amount, change}) =>{
-  return(
-            <Button
-            style={{
-        maxWidth: "20%",
-        minWidth: "20%",
-      }}
-              size="large"
-              sx={{ m: 0.5 }}
-              variant="contained"
-              color="success"
-              type="button"
-              onClick={() => change(amount)}
-            >
-              {amount}
-            </Button>
-  )
-}
-
-const TotalCost = ({tokenAmount, price}) =>{
-  if (tokenAmount > 0 && tokenAmount!==""){
-      return (
-        <Grid container justifyContent="center" alignItems="center">
-          <Typography sx={{color:'#FFFFFF'}}>Cost: {tokenAmount*price} BNB</Typography>
-          <Avatar
-      alt=""
-      src={bnb}
-      sx={{ width: 24, height: 24 }}
-    />
-        </Grid>
-      )
-  }
-}
+import { CustomTextField } from "./customTextField";
+import TotalBNB from "./TotalBNB";
+import CustomButton from "./CustomButton";
 
 const Buy = async(event, tokenAmount, change, price, account, dispatch) => {
   event.preventDefault();
@@ -107,37 +51,65 @@ const Buy = async(event, tokenAmount, change, price, account, dispatch) => {
 }
 };
 
-const BuyTokens = () => {
+const BuyTokens = ({account, price}) => {
 
   const dispatch = useDispatch()
-
-  const price = useSelector(({ price }) => {
-    return price;
-  });
-  const account = useSelector(({ account }) => {
-    return (
-      account
-    )
-  })
   const tokenAmount = useField("");
 
   return (
-    <Grid item>
-      <Typography className="center" variant="h3" sx={{color:'#FFFFFF'}}>Tokens Store</Typography>
+    <Grid container rowSpacing={2}>
+      <Grid item xs={12}>
+      <Grid container alignItems="center" justifyContent="center">
+        <Typography variant="h3" sx={{color:'#FFFFFF', width:'90%'}} align='center'>Tokens Store</Typography>
+        </Grid>
+        </Grid>
+        <Grid item xs={12}>
       <form onSubmit={(event)=>Buy(event, tokenAmount.value, tokenAmount.change, price, account, dispatch)}>
       <Grid container spacing={2}>
       <Grid item xs={12}>
           <Grid container alignItems="center" justifyContent="center">
-            <CButton amount={10} change={tokenAmount.change} tokenAmount={tokenAmount}/>
-            <CButton amount={100} change={tokenAmount.change} tokenAmount={tokenAmount}/>
-            <CButton amount={1000} change={tokenAmount.change} tokenAmount={tokenAmount}/>
-            <CButton amount={10000} change={tokenAmount.change} tokenAmount={tokenAmount}/>
+          <CustomButton
+                display={"10"}
+                functionallity={()=>tokenAmount.change(parseInt(10))}
+                width={"20%"}
+                size={'large'}
+                backGround={'#2e7d32'}
+                text={'#e0e5bc'}
+                margin= {0.5}
+              />
+            <CustomButton
+                display={"100"}
+                functionallity={()=>tokenAmount.change(parseInt(100))}
+                width={"20%"}
+                size={'large'}
+                backGround={'#2e7d32'}
+                text={'#e0e5bc'}
+                margin= {0.5}
+              />
+            <CustomButton
+                display={"1000"}
+                functionallity={()=>tokenAmount.change(parseInt(1000))}
+                width={"20%"}
+                size={'large'}
+                backGround={'#2e7d32'}
+                text={'#e0e5bc'}
+                margin= {0.5}
+              />
+            <CustomButton
+                display={"10000"}
+                functionallity={()=>tokenAmount.change(parseInt(10000))}
+                width={"20%"}
+                size={'large'}
+                backGround={'#2e7d32'}
+                text={'#e0e5bc'}
+                margin= {0.5}
+              />
         </Grid>
         </Grid>
 
         <Grid item xs={12} sx={{ m: 0.25 }}>
           <Grid container alignItems="center" justifyContent="center">
-          <CssTextField
+          <CustomTextField
     key={"hola"}
     size="normal"
     id="outlined-number"
@@ -157,7 +129,7 @@ const BuyTokens = () => {
         </Grid>
       
         <Grid item xs={12} sx={{ m: 0.25 }}>
-        <TotalCost tokenAmount={tokenAmount.value} price={price} />
+        <TotalBNB tokenAmount={tokenAmount.value} price={price} msg={'Cost :'}/>
         </Grid>
         
         <Grid item xs={12} sx={{ m: 0.25 }}>
@@ -169,6 +141,7 @@ const BuyTokens = () => {
         </Grid>
       </Grid>
     </form>
+    </Grid>
       <ToastContainer />
     </Grid>
   );

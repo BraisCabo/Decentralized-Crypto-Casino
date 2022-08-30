@@ -87,7 +87,7 @@ contract Casino is Ownable{
         return historialApuestas[_propietario];
     }
 
-    function jugarRuleta(uint _start, uint _end, uint _tokensBet) public returns(RouleteResult memory){
+    function jugarRuleta(uint _start, uint _end, uint _tokensBet) public{
         require(_tokensBet <= token.balanceOf(msg.sender));
         require(_tokensBet > 0);
         uint random = uint(uint(keccak256(abi.encodePacked(block.timestamp))) % 14);
@@ -107,9 +107,7 @@ contract Casino is Ownable{
             token.transfer( address(this), msg.sender, tokensEarned);
         }
             addHistorial("Roulete", _tokensBet, tokensEarned, msg.sender);
-            RouleteResult memory result  = RouleteResult(random, win, tokensEarned);
             emit RouletteGame(random, win, tokensEarned);
-            return  result;
     }
 
     function addHistorial(string memory _game, uint _tokensBet,  uint _tokenEarned, address caller) internal{

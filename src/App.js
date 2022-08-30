@@ -9,6 +9,7 @@ import { loadBalance } from './reducers/balanceReducer';
 import { loadPrice } from './reducers/priceReducer';
 import { loadHistorial } from './reducers/historialReducer';
 import BuyTokens from './components/BuyTokens';
+import WithdrawTokens from './components/Withdraw';
 import Header from './components/Header';
 import {
   Routes,
@@ -16,16 +17,23 @@ import {
 } from "react-router-dom"
 
 import RouletteGame from './components/RouletteGame';
+import Wallet from './components/Wallet';
+import Games from './components/Games';
 
 const App = () => {
   const dispatch = useDispatch()
+  const balance = useSelector(({ balance }) => {
+    return balance;
+  });
   const account = useSelector(({ account }) => {
     return (
       account
     )
   })
 
-
+  const price = useSelector(({ price }) => {
+    return price;
+  });
 
   const web3Handler = async () => {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -60,13 +68,18 @@ const App = () => {
   return (
     <Grid container rowSpacing={{ xs: 8, sm: 9 }} sx={{ width: 1, backgroundColor: '#222c31'  }}>
     <Grid item xs={12}>
-      <Header login={web3Handler}/>
+      <Header login={web3Handler} balance={balance} account={account}/>
     </Grid>
     <Grid item xs={12}>
 
       <Routes>
-        <Route path="/buyTokens" element={<BuyTokens />} />
-        <Route path="/games" element={<RouletteGame />} />
+        <Route path="/Wallet" element={<Wallet/>} > 
+          <Route path="buyTokens" element={<BuyTokens account={account} price={price} />} />
+          <Route path="withdrawTokens" element={<WithdrawTokens balance={balance} account={account} price={price}/>} />
+        </Route>
+        <Route path="/games" element={<Games/>}/>
+        
+        <Route path="/games/Roulette" element={<RouletteGame balance={balance} account={account} />} />
       </Routes>
       </Grid>
       </Grid>

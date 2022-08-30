@@ -13,14 +13,12 @@ import {
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 import { makeStyles } from "tss-react/mui";
 import { Box } from "@mui/system";
-import CustomColor from "./NeutralButton";
+import CustomButton from "./CustomButton";
 import casinoToken from "../images/Casino.png";
-import { useSelector } from "react-redux";
 import WalletIcon from "@mui/icons-material/AccountBalanceWallet";
-
 import { useNavigate } from "react-router";
 
 const headersData = [
@@ -29,12 +27,12 @@ const headersData = [
     href: "/games",
   },
   {
-    label: "Mentors",
-    href: "/mentors",
+    label: "Historial",
+    href: "/historial",
   },
   {
-    label: "My Account",
-    href: "/account",
+    label: "About Creator",
+    href: "/creator",
   },
 ];
 
@@ -68,12 +66,9 @@ const useStyles = makeStyles()(() => ({
   },
 }));
 
-export default function Header({ login }) {
+export default function Header({ login, account, balance }) {
   const { header, menuButton, toolbar, drawerContainer } = useStyles();
 
-  const account = useSelector(({ account }) => {
-    return account;
-  });
   const navigate = useNavigate();
   const [state, setState] = useState({
     mobileView: false,
@@ -81,9 +76,6 @@ export default function Header({ login }) {
   });
 
   const { mobileView, drawerOpen } = state;
-  const balance = useSelector(({ balance }) => {
-    return balance;
-  });
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -110,7 +102,7 @@ export default function Header({ login }) {
       );
     } else {
       return (
-        <CustomColor
+        <CustomButton
           backGround={"#222c31"}
           text={"#fff"}
           display={`${account.slice(0, 5)}...`}
@@ -120,20 +112,60 @@ export default function Header({ login }) {
   };
 
   const displayDesktop = () => {
+    const handleDrawerOpen = () =>
+      setState((prevState) => ({ ...prevState, drawerOpen: true }));
+    const handleDrawerClose = () =>
+      setState((prevState) => ({ ...prevState, drawerOpen: false }));
     return (
-      <Toolbar className={toolbar}>
+<Toolbar>
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container columns={3}>
+          <Grid container columns={6}>
             <Grid item xs={1}>
-              <div>{getMenuButtons()}</div>
+              <IconButton
+                {...{
+                  edge: "start",
+                  color: "inherit",
+                  "aria-label": "menu",
+                  "aria-haspopup": "true",
+                  onClick: handleDrawerOpen,
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Drawer
+                {...{
+                  anchor: "left",
+                  open: drawerOpen,
+                  onClose: handleDrawerClose,
+                }}
+                PaperProps={{
+                  sx: {
+                    backgroundColor: "#2f3d45",
+                    color: "white",
+                  },
+                }}
+              >
+                <IconButton
+                  {...{
+                    edge: "start",
+                    color: "inherit",
+                    "aria-label": "menu",
+                    "aria-haspopup": "true",
+                    onClick: handleDrawerClose,
+                  }}
+                >
+                  <CloseIcon />
+                </IconButton>
+                <div className={drawerContainer}>{getDrawerChoices()}</div>
+              </Drawer>
             </Grid>
-            <Grid item xs={1}>
+            <Grid item xs={4}>
               <Grid container alignItems="center" justifyContent="center">
-                {femmecubatorLogo}
+                {femmecubatorLogo('30%')}
               </Grid>
             </Grid>
             <Grid item xs={1}>
-              <Grid container alignItems="end" justifyContent="right">
+              <Grid container alignItems="flex-end" justifyContent="right">
                 <LoginButton />
               </Grid>
             </Grid>
@@ -170,6 +202,12 @@ export default function Header({ login }) {
                   open: drawerOpen,
                   onClose: handleDrawerClose,
                 }}
+                PaperProps={{
+                  sx: {
+                    backgroundColor: "#2f3d45",
+                    color: "white",
+                  },
+                }}
               >
                 <IconButton
                   {...{
@@ -182,14 +220,12 @@ export default function Header({ login }) {
                 >
                   <CloseIcon />
                 </IconButton>
-                <div className={drawerContainer}>
-                  {getDrawerChoices()}
-                </div>
+                <div className={drawerContainer}>{getDrawerChoices()}</div>
               </Drawer>
             </Grid>
             <Grid item xs={4}>
               <Grid container alignItems="center" justifyContent="center">
-                {femmecubatorLogo}
+                {femmecubatorLogo('70%')}
               </Grid>
             </Grid>
             <Grid item xs={1}>
@@ -206,29 +242,29 @@ export default function Header({ login }) {
   const getDrawerChoices = () => {
     return headersData.map(({ label, href }) => {
       return (
-          <Link
-            {...{
-              component: RouterLink,
-              to: href,
-              color: "inherit",
-              style: { textDecoration: "none" },
-              key: label,
-            }}
-          >
-            <MenuItem>{label}</MenuItem>
-          </Link>
+        <Link
+          {...{
+            component: RouterLink,
+            to: href,
+            color: "inherit",
+            style: { textDecoration: "none" },
+            key: label,
+          }}
+        >
+          <MenuItem>{label}</MenuItem>
+        </Link>
       );
     });
   };
 
-  const femmecubatorLogo = (
+  const femmecubatorLogo = (width) => (
     <Box
       sx={{
         backgroundColor: "#222c31",
         border: 5,
         borderColor: "#222c31",
         borderRadius: "10px",
-        width: "70%",
+        width:{width},
       }}
       component="div"
     >
@@ -270,7 +306,7 @@ export default function Header({ login }) {
               variant="contained"
               color="success"
               startIcon={<WalletIcon sx={{ color: "#1f1f1f" }} />}
-              onClick={() => navigate("/buyTokens")}
+              onClick={() => navigate("/Wallet/buyTokens")}
             >
               <Typography display={{ xs: "none", md: "contents" }}>
                 Wallet
