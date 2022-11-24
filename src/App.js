@@ -62,7 +62,7 @@ const App = () => {
 
   useEffect(() => {
     loadInfo()
-}, [accoun])
+}, [account])
 
 
   return (
