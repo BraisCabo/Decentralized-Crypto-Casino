@@ -34,7 +34,7 @@ The project is about a casino whose backend is based on smart contracts deployed
 * You can play roulette and you get notified with the result of the bet  
     ![update](./UsageImages/Play.png)  
 
-* You cant bet or withdraw more tokens than you have  
+* You cant bet or withdraw more tokens than your balance  
     ![update](./UsageImages/NoBet.png)  
 
 * There is also a desktop version that have the same features
