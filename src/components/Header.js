@@ -25,15 +25,7 @@ const headersData = [
   {
     label: "Games",
     href: "/games",
-  },
-  {
-    label: "Historial",
-    href: "/historial",
-  },
-  {
-    label: "About Creator",
-    href: "/creator",
-  },
+  }
 ];
 
 const useStyles = makeStyles()(() => ({

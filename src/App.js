@@ -66,19 +66,17 @@ const App = () => {
 
 
   return (
-    <Grid container rowSpacing={{ xs: 8, sm: 9 }} sx={{ width: 1, backgroundColor: '#222c31'  }}>
+    <Grid container rowSpacing={{ xs: 8, sm: 9 }} sx={{ width: 1, backgroundColor: '#222c31'}}>
     <Grid item xs={12}>
       <Header login={web3Handler} balance={balance} account={account}/>
     </Grid>
     <Grid item xs={12}>
-
       <Routes>
         <Route path="/Wallet" element={<Wallet/>} > 
           <Route path="buyTokens" element={<BuyTokens account={account} price={price} />} />
           <Route path="withdrawTokens" element={<WithdrawTokens balance={balance} account={account} price={price}/>} />
         </Route>
         <Route path="/games" element={<Games/>}/>
-        
         <Route path="/games/Roulette" element={<RouletteGame balance={balance} account={account} />} />
       </Routes>
       </Grid>
