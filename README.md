@@ -16,7 +16,7 @@ The project is about a casino whose backend is based on smart contracts deployed
 * You get notified with the result of the purchase  
     ![update](./UsageImages/BoughtNotify.png)  
 
-* The ammount of tokens is updated
+* The ammount of tokens is updated  
     ![update](./UsageImages/TokenUpdate.png)  
 
 * You can withdraw tokens  
