@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\brais\\OneDrive\\Documentos\\CriptoCasino\\src\\backend\\contracts\\Casino.sol": {
-      "lastModificationDate": 1661350679113,
-      "contentHash": "cdbaa9ddc92f1726513b366589540b87",
+    "C:\\Users\\brais\\OneDrive\\Escritorio\\CriptoCasino\\src\\backend\\contracts\\Casino.sol": {
+      "lastModificationDate": 1674340962586,
+      "contentHash": "9243cfe0620ef374eb734718119fbc42",
       "sourceName": "src/backend/contracts/Casino.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -39,8 +39,8 @@
         "Casino"
       ]
     },
-    "C:\\Users\\brais\\OneDrive\\Documentos\\CriptoCasino\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
-      "lastModificationDate": 1660558662122,
+    "C:\\Users\\brais\\OneDrive\\Escritorio\\CriptoCasino\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
+      "lastModificationDate": 1674341345858,
       "contentHash": "8398972af73b4e9e5ff3b31cad86234f",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -76,8 +76,8 @@
         "Ownable"
       ]
     },
-    "C:\\Users\\brais\\OneDrive\\Documentos\\CriptoCasino\\src\\backend\\contracts\\Token.sol": {
-      "lastModificationDate": 1660668525527,
+    "C:\\Users\\brais\\OneDrive\\Escritorio\\CriptoCasino\\src\\backend\\contracts\\Token.sol": {
+      "lastModificationDate": 1674340962586,
       "contentHash": "f46d48c49f85f89bb2002265c88145e4",
       "sourceName": "src/backend/contracts/Token.sol",
       "solcConfig": {
@@ -112,8 +112,8 @@
         "IERC20"
       ]
     },
-    "C:\\Users\\brais\\OneDrive\\Documentos\\CriptoCasino\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
-      "lastModificationDate": 1660558661717,
+    "C:\\Users\\brais\\OneDrive\\Escritorio\\CriptoCasino\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1674341339710,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -145,76 +145,6 @@
       ],
       "artifacts": [
         "Context"
-      ]
-    },
-    "C:\\Users\\brais\\OneDrive\\Documentos\\CriptoCasino\\node_modules\\@openzeppelin\\contracts\\utils\\Strings.sol": {
-      "lastModificationDate": 1660558662172,
-      "contentHash": "9c54c6c065d9e590fdcdd72c451425b9",
-      "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Strings"
-      ]
-    },
-    "C:\\Users\\brais\\OneDrive\\Documentos\\CriptoCasino\\node_modules\\hardhat\\console.sol": {
-      "lastModificationDate": 1660491302693,
-      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
-      "sourceName": "hardhat/console.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.4.22 <0.9.0"
-      ],
-      "artifacts": [
-        "console"
       ]
     }
   }
