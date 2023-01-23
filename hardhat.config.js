@@ -20,9 +20,15 @@ module.exports = {
       url: "https://rpc-mumbai.maticvigil.com/v1/99a99d15ac2ad3b526aa97401fdbe30ee724ba38",
       accounts: [privateKey]
     },
-    bsc: {
+    testnet: {
       url: "https://data-seed-prebsc-1-s1.binance.org:8545",
       chainId: 97,
+      gasPrice: 20000000000,
+      accounts: [privateKey]
+    },
+    bsc: {
+      url: "https://bsc-dataseed.binance.org/",
+      chainId: 56,
       gasPrice: 20000000000,
       accounts: [privateKey]
     },

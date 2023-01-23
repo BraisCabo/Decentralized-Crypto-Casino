@@ -62,7 +62,7 @@ contract ERC20 is IERC20 {
     Ether y Wei. Este es el valor que utiliza {ERC20}, a menos que esta funcion sea
     sea anulada. */
     function decimals() public view virtual returns (uint8) {
-        return 18;
+        return 0;
     }
 
     // Ver: {IERC20-totalSupply}.

@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\brais\\OneDrive\\Escritorio\\CriptoCasino\\src\\backend\\contracts\\Casino.sol": {
-      "lastModificationDate": 1674340962586,
-      "contentHash": "9243cfe0620ef374eb734718119fbc42",
+      "lastModificationDate": 1674467648214,
+      "contentHash": "72bbaaddc74ed2f84b38f47190e214ef",
       "sourceName": "src/backend/contracts/Casino.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -40,8 +40,8 @@
       ]
     },
     "C:\\Users\\brais\\OneDrive\\Escritorio\\CriptoCasino\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
-      "lastModificationDate": 1674341345858,
-      "contentHash": "8398972af73b4e9e5ff3b31cad86234f",
+      "lastModificationDate": 1674466755118,
+      "contentHash": "e436cea06129be2c73cda4b1acc848b5",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -77,8 +77,8 @@
       ]
     },
     "C:\\Users\\brais\\OneDrive\\Escritorio\\CriptoCasino\\src\\backend\\contracts\\Token.sol": {
-      "lastModificationDate": 1674340962586,
-      "contentHash": "f46d48c49f85f89bb2002265c88145e4",
+      "lastModificationDate": 1674468561867,
+      "contentHash": "331f8ff8995e2641854d341dbe17ff53",
       "sourceName": "src/backend/contracts/Token.sol",
       "solcConfig": {
         "version": "0.8.4",

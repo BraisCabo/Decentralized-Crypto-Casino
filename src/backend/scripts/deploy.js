@@ -9,6 +9,7 @@ async function main() {
 
   // Save copies of each contracts abi and address to the frontend.
   saveFrontendFiles(casino, "Casino");
+  console.log( "Token address:",await  casino.getAdress());
 }
 
 function saveFrontendFiles(contract, name) {

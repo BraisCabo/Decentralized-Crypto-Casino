@@ -13,7 +13,7 @@ contract Casino is Ownable{
     );
 
     ERC20 private token;
-     address public tokenAddress;
+    address public tokenAddress;
 
     function precioTokens(uint256 _numTokens) public pure returns (uint256){
         return _numTokens * (0.001 ether);
@@ -32,6 +32,12 @@ contract Casino is Ownable{
     function balanceEthersSC() public view returns (uint256){
         return address(this).balance / 10**18;
     }
+
+    function getAdress() public view returns (address){
+        return address(token);
+
+    }
+
      function compraTokens(uint256 _numTokens) public payable{
         // Registro del ususario
         // Establecimiento del coste de los tokens a comprar
