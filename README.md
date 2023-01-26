@@ -9,8 +9,6 @@
 - [Introduction](#introduction)
 - [Motivation](#motivation)
 - [Features](#features)
-    - [Buy and Withdraw Tokens](#buy)
-    - [Playing Roulette](#smart-contracts)
 - [How is the app implemented?](#how-is-the-app-implemented)
     - [Frontend](#frontend)
     - [Smart Contracts](#smart-contracts)
