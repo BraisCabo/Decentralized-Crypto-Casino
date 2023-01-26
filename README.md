@@ -64,7 +64,7 @@ To connect react with Smart Contracts I used the ethers.js library. With this li
 
 If you want to test the deployed casino just go to https://crypto-casino-chi.vercel.app and open the Metamask wallet with an account from the polygon testnet, if you don't know how to do it you can follow this [tutorial](https://docs.unstoppabledomains.com/manage-domains/guides/add-polygon-to-metamask/).
 
-After that you have to click on the red button to connect the website to your wallet and you will be able to test all the functionalities offered by the website.
+After that you have to click on the red button to connect the website to your wallet and you will be able to test all the functionalities offered by the application.
 
 ## Installation[![](./docs/img/pin.svg)](#installation)
 
