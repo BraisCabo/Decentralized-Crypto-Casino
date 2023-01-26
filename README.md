@@ -122,6 +122,7 @@ If you want to change the token name, just edit the /src/backend/contracts/Casin
 
 ```javascript
 constructor(){
+    //                  name      symbol
     token =  new ERC20("Casino", "CAS"); //you only have to change this values
     tokenAddress = address(token); //change "Casino" for changing the name
     token.mint(1000000); //Change "CAS" for changing the symbol
