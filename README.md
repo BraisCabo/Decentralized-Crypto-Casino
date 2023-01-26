@@ -1,5 +1,5 @@
 <h1 align="center" style="display: block; font-size: 2.5em; font-weight: bold; margin-block-start: 1em; margin-block-end: 1em;">
-  <br /><br /><strong>Descentralized Crypto Casino</strong>
+  <br /><br /><strong>Decentralized Crypto Casino</strong>
 </h1>
 
 <br/>1 `star` == 1 `thank you`. By starring the project you thank the contributors for work.
